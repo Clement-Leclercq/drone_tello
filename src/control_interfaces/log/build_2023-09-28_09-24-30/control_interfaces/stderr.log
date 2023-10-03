@@ -1,0 +1,12 @@
+[31mCMake Error at CMakeLists.txt:16 (rosidl_generate_interfaces):
+  Syntax error in cmake code at
+
+    /home/triton_10/ros2_ws_lp/src/control_interfaces/CMakeLists.txt:16
+
+  when parsing string
+
+    ${PROJECT_NA%E}
+
+  Invalid character ('%') in a variable name: 'PROJECT_NA'
+
+[0m
