@@ -1,3 +1,4 @@
+#Import de l'ensemble des modules ROS et interfaces qu'on utilise dans l'ensemble du code
 import sys
 import rclpy
 from rclpy.node import Node
@@ -29,6 +30,8 @@ class Behavior(Node):
         #     10)
         # self.subscription_joy  # prevent unused variable warning
 
+        
+        # Création du subscriber au topic secure_cmd pour écouter la node control
         self.subscription_manual = self.create_subscription(
             Twist,
             'secure_cmd',
@@ -36,6 +39,7 @@ class Behavior(Node):
             10)
         self.subscription_manual # prevent unused variable warning
 
+        # Création du subscriber au topic image_raw qui nous permet de récupérer les infos caméras du drone
         self.subscription_qr = self.create_subscription(
             Image,
             'image_raw',
@@ -44,28 +48,37 @@ class Behavior(Node):
         self.subscription_qr # prevent unused variable warning
 
 
-
+        # Création du serveur du service drone_mode
         self.srv = self.create_service(DroneMode, 'drone_mode', self.drone_mode_callback)
+
+        # Création de nos publishers
         self.publisher_control = self.create_publisher(Twist,'control',10)
+
+        #Variable globale
         self.mode = None
 
+        # Création du client du service drone_mode 
         self.drone_mode_client = self.create_client(DroneMode, 'drone_mode')
         while not self.drone_mode_client.wait_for_service(timeout_sec=1.0):
             self.get_logger().info("CLIENT: Drone_mode Service not available, waiting again...")
+        # Envoi d'une requete de mode de vol manuel pendant l'initialisation de la node ce qui
+        # nous permet de contrôler manuellement le drone
         self.req = DroneMode.Request()
         response = self.send_request(0)
         self.get_logger().info('CLIENT: Changing mode : %d' % (response.status))
-        
+
+        # Création d'une clock de 1 seconde qui appelle la callback scout_mode
         timer_period = 1  # seconds
         self.timer = self.create_timer(timer_period, self.scout_mode)
 
+        # Mise en place de variable permettant le traitement des images avec opencv 
         self.br = CvBridge()
 
         self.errList = [0,0] #x,z
         self.errListFollow = [0,0,0] #x,y,z
 
         self.actionList = [0,0]
-
+        # Attention à bien modifier le path menant à la cascade de haar
         self.body_cascade = cv2.CascadeClassifier('/home/triton_10/ros2_ws_lp/haarcascade_frontalface_default.xml')
 
 
@@ -73,7 +86,11 @@ class Behavior(Node):
 
 
     def send_request(self, mode):
-        
+        # Partie client avec call asynchrone permettant de changer de mode
+        # Il est impossible de lancer cette callback depuis une autre callback
+        # Il nous a donc été impossible de mapper le changement de mode avec la manette
+        # Pour changer de mode il faut faire un appel terminal
+
 
         self.req.mode = mode
         self.get_logger().info('CLIENT: Sending Request...')
@@ -116,7 +133,8 @@ class Behavior(Node):
 
 
     def drone_mode_callback(self, request, response):
-
+        # Partie Serveur du service drone_mode
+        
         commande = Twist()
         commande.linear.x = 0.0
         commande.linear.y = 0.0
@@ -133,18 +151,23 @@ class Behavior(Node):
         match self.mode:
             case 0:
                 #mode manuel
+                #le drone se pilote via la manette
                 self.get_logger().info("SERVER: Setting Manual Mode")
                 response.status = True
 
             case 1:
                 #mode surveillance
+                #le drone tourne sur lui même sur une position stationnaire
                 self.get_logger().info("SERVER: Setting Scout Mode")
                 response.status = True
             case 2: 
                 #mode Spielberg
+                #le drone suit la personne qu'il reconnait
                 self.get_logger().info("SERVER: Setting Spielberg Mode")
                 response.status = True
             case 3:
+                #mode follower de QR Code
+                #le drone se centre sur le qr code qu'on lui présente
                 self.get_logger().info("SERVER: Setting qr Mode")
                 response.status = True
         return response
@@ -152,13 +175,13 @@ class Behavior(Node):
 
     def manual_mode(self, msg):
         if self.mode == 0:
+            #Si nous sommes bien en mode manuel, nous laissons simplement passé les messages arrivant sur le topic /secure_cmd
+            #pour les publier sur le topic /control
             self.publisher_control.publish(msg)
-
-
-
 
     def scout_mode(self):
         if self.mode == 1 :
+            #Envoi de la commande de controle permettant la rotation du drone sur lui même en mode scout
             commande = Twist()
             commande.linear.x = 0.0
             commande.linear.y = 0.0
@@ -168,15 +191,9 @@ class Behavior(Node):
             commande.angular.z = 20.0
             self.publisher_control.publish(commande)
     
-
-  
-
-
-
-
-
     def qr_mode(self,msg):
         if self.mode == 3:
+            #Fonction permettant de centrer le drone sur un QR code qu'il détecte (n'importe quel QR Code)
             frame = self.br.imgmsg_to_cv2(msg)
 
             
@@ -236,6 +253,7 @@ class Behavior(Node):
                 commande.angular.z = 0.0
                 self.publisher_control.publish(commande)
             else:
+                #Si nous ne détectons pas de QR code, nous ordonnons au drone de ne pas bouger
                 commande = Twist()
                 commande.linear.x = 0.0
                 commande.linear.y = 0.0
@@ -245,7 +263,8 @@ class Behavior(Node):
                 commande.angular.z = 0.0
                 self.publisher_control.publish(commande)
 
-        if self.mode == 2:    
+        if self.mode == 2:   
+            # Partie en mode SPIELBERG qui nous permet de suivre une personne après une détection de visage via un cascade de HAAR
             frame = self.br.imgmsg_to_cv2(msg)
             # Convert the image to grayscale
             gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
@@ -297,21 +316,10 @@ class Behavior(Node):
                 commande.angular.y = 0.0
                 commande.angular.z = 0.0
                 self.publisher_control.publish(commande)
-
-
-
-
                 
-
-
-
-            
-    
-    
     def _pid(self, err, err_1, Kp, Ki, Kd):
+        # Fonction PID basique permettant d'éviter les trops fortes oscillations en mode Follower de QR Code et en mode Spielberg
         return Kp*err + Ki*(err+err_1) + Kd*(err-err_1) 
-
-            
 
             
 
