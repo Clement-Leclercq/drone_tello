@@ -67,15 +67,15 @@ Dans le troisème terminal: Il servira à changer les différents mode du drone 
 
 Lien de la playlist contenant les diffréntes démos de chaque mode: https://youtube.com/playlist?list=PLEFSyLthRPaKTrvjCAHfriWCbrdumMW5O&si=6MFcDMHthYX1npoO
 
-### Décollage, atterisage et arret d'urgence : 
-- Le decollage s'effectue à partir du bouton start de la télécommande
-- L'atterisage s'effectue en utilisant le bouton back de la télécommande
-- L'arret d'urgence utilise le bouton centrale de la télécommande
+### Décollage, atterrissage et arrêt d'urgence : 
+- Le décollage s'effectue à partir du bouton start de la manette
+- L'atterrissage s'effectue en utilisant le bouton back de la manette
+- L'arrêt d'urgence utilise le bouton centrale de la manette
 
-La node utilisée est **control** ce qui permet à ces actions d'etre independantes des differents modes de fonctionnement.  
+La node utilisée est **control** ce qui permet à ces actions d'être indépendantes des différents modes de fonctionnement.  
 Démonstration vidéo: https://youtu.be/ub3ZzUuB7SU?si=P_U4y89SkidaQQTP
 ### Mode manuel :
-Le mode manuel permet de controler le drone avec la télécommande de Xbox. Le joystick de gauche permet de controler le Throttle et le Yaw quant au joystick droit, il permet de controler le pitch et le roll.  
+Le mode manuel permet de contrôler le drone avec la manette de Xbox. Le joystick de gauche permet de contrôler le Throttle et le Yaw quant au joystick droit, il permet de contrôler le pitch et le roll.  
 Démonstration vidéo: https://youtu.be/eWMS9wSRR9A?si=pkOpIXrpR6O5PI6b  
 
 Les différents boutons ABXY nous permettent de faire faire un flip dans une des 4 directions au drone.  
@@ -86,9 +86,13 @@ Le mode scout permet au drone de rester en vol stationnaire tout en tournant sur
 Démonstration vidéo: https://youtu.be/g0M1cWxgqsA?si=w5vGnI43z_uuT9KD
 ### Mode Spielberg : 
 Le mode spielberg permet de suivre le visage d'une personne à distance. L'asservisement en vitesse est fait à partir d'un PID, et la détection d'un visage à l'aide d'une cascade de Haar.  
-Le drone cherchera toujours à rester à la meme distance de la personnes en reculant si la personne avance et en avancant si la personne recule. Il peut aussi suivre le visage de gauche à droite et de haut en bas.  
+Le drone cherchera toujours à rester à la meme distance de la personnes en reculant si la personne avance et en avançant si la personne recule. Il peut aussi suivre le visage de gauche à droite et de haut en bas.  
 Démonstration vidéo: https://youtu.be/GxWoVTguUL8?si=xAq99_BImZdGE_Gy
 ### Mode QR code follower : 
+Le mode QR code follower permet au drone de se centrer tout seul sur un QR Code qu'il détecte via sa caméra. Si le drone ne détecte pas de QR code il ne bougera alors pas.  
+L'asservissement en vitesse est fait à partir d'un PID, et la détection du QR code via la node barcode_reader du package zbar_ros.
+Nous observons tout de même des petites oscillations puisque le PID n'est pas non plus parfait.
+
 Démonstration vidéo: https://youtu.be/ydxsrOaWPzc?si=SZfchz_pwp_9GMRA
 
 
