@@ -1,17 +1,6 @@
 # drone_tello 
 
-# Table of Contents
-
-1. [Questions](#Questions)
-2. [Features](#features)
-3. [Installation](#installation)
-4. [Usage](#usage)
-5. [Contributing](#contributing)
-6. [License](#license)
-
-## Questions :
-
-❓ Question 1 ❓
+### ❓ Question 1 ❓<a name="question_1"></a>
 Après lecture de cet extrait, répondez aux questions suivantes :
 Quelles sont les quatre commandes classiques d’un drone quadrirotor ?
 A l’aide de schémas et de repères que vous aurez fixés, expliquez comment
