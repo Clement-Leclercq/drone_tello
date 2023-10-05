@@ -36,16 +36,21 @@ Quel est respectivement le type de chacun des messages associés ?
 ## Control du drone : 
 
 ### Introduction : 
-- Lancement avec Ubuntu 22.04  
-- Lancez 3 terminaux  
-- Sourcez votre ros2 humble  
-- Placez vous dans le dossier contenant le src du repo  
-- Build le package en effectuant: colcon build  
-- Sourcez les 3 terminaux: source install/setup.bash  
-- S'assûrer de bien être connecté au drone tello  
-- Dans le premier terminal:  -> ros2 run tello tello  
-- Dans le second terminal:  -> ros2 launch control control.launch.py  -> une fenêtre RQT s'ouvre, vous pouvez choisir le topic image_raw  
-- Dans le troisème terminal: Il servira à changer les différents mode du drone via un appel de service  -> ros2 service call /drone_mode control_interfaces/srv/DroneMode "{mode: 0}" -> vous pouvez changer le mode: 0 pour manuel, 1 pour scout, 2 pour Spielberg, 3 pour le follower de QR Code  
+Lancement avec Ubuntu 22.04  
+Lancez 3 terminaux  
+Sourcez votre ros2 humble  
+Placez vous dans le dossier contenant le src du repo  
+Build le package en effectuant: colcon build  
+Sourcez les 3 terminaux: source install/setup.bash  
+S'assûrer de bien être connecté au drone tello  
+Dans le premier terminal:  
+-> ros2 run tello tello  
+Dans le second terminal:  
+-> ros2 launch control control.launch.py  
+-> une fenêtre RQT s'ouvre, vous pouvez choisir le topic image_raw  
+Dans le troisème terminal: Il servira à changer les différents mode du drone via un appel de service  
+-> ros2 service call /drone_mode control_interfaces/srv/DroneMode "{mode: 0}"  
+-> vous pouvez changer le mode: 0 pour manuel, 1 pour scout, 2 pour Spielberg, 3 pour le follower de QR Code  
 
 ### Décollage, atterisage et arret d'urgence : 
 - Le decollage s'effectue à partir du bouton start de la télécommande
