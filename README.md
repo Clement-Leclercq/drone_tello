@@ -63,23 +63,30 @@ Dans le troisème terminal: Il servira à changer les différents mode du drone 
 ```bash
  ros2 service call /drone_mode control_interfaces/srv/DroneMode "{mode: 0}"
 ```
--> vous pouvez changer le mode: 0 pour manuel, 1 pour scout, 2 pour Spielberg, 3 pour le follower de QR Code  
+-> vous pouvez changer le mode: 0 pour manuel, 1 pour scout, 2 pour Spielberg, 3 pour le follower de QR Code    
+
+Lien de la playlist contenant les diffréntes démos de chaque mode: https://youtube.com/playlist?list=PLEFSyLthRPaKTrvjCAHfriWCbrdumMW5O&si=6MFcDMHthYX1npoO
 
 ### Décollage, atterisage et arret d'urgence : 
 - Le decollage s'effectue à partir du bouton start de la télécommande
 - L'atterisage s'effectue en utilisant le bouton back de la télécommande
 - L'arret d'urgence utilise le bouton centrale de la télécommande
 
-La node utilisée est **control** ce qui permet à ces actions d'etre independantes des differents modes de fonctionnement.
-
+La node utilisée est **control** ce qui permet à ces actions d'etre independantes des differents modes de fonctionnement.  
+Démonstration vidéo: https://youtu.be/ub3ZzUuB7SU?si=P_U4y89SkidaQQTP
 ### Mode manuel :
-Le mode manuel permet de controler le drone avec la télécommande de Xbox. Le joystick de gauche permet de controler le Throttle et le Yaw quant au joystick droit, il permet de controler le pitch et le roll.
+Le mode manuel permet de controler le drone avec la télécommande de Xbox. Le joystick de gauche permet de controler le Throttle et le Yaw quant au joystick droit, il permet de controler le pitch et le roll.  
+Démonstration vidéo: https://youtu.be/eWMS9wSRR9A?si=pkOpIXrpR6O5PI6b  
+
+Les différents boutons ABXY nous permettent de faire faire un flip dans une des 4 directions au drone.  
+Démonstration vidéo: https://youtu.be/OdZ0dC0NkbQ?si=fF7q7hx6sQZt00Q6
 
 ### Mode scout :
-
+Démonstration vidéo: https://youtu.be/g0M1cWxgqsA?si=w5vGnI43z_uuT9KD
 ### Mode Spielberg : 
-
+Démonstration vidéo: https://youtu.be/GxWoVTguUL8?si=xAq99_BImZdGE_Gy
 ### Mode QR code follower : 
+Démonstration vidéo: https://youtu.be/ydxsrOaWPzc?si=SZfchz_pwp_9GMRA
 
 
 
