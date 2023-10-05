@@ -82,7 +82,8 @@ Les différents boutons ABXY nous permettent de faire faire un flip dans une des
 Démonstration vidéo: https://youtu.be/OdZ0dC0NkbQ?si=fF7q7hx6sQZt00Q6
 
 ### Mode scout :
-Le mode scout permet au drone de rester en vol stationnaire tout en tournant sur lui même. 
+Le mode scout permet au drone de rester en vol stationnaire tout en tournant sur lui même.  
+
 Démonstration vidéo: https://youtu.be/g0M1cWxgqsA?si=w5vGnI43z_uuT9KD
 ### Mode Spielberg : 
 Démonstration vidéo: https://youtu.be/GxWoVTguUL8?si=xAq99_BImZdGE_Gy
