@@ -33,5 +33,8 @@ Quel est respectivement le type de chacun des messages associés ?
 | /land | [std_msgs/msg/Empty] |
 | /takeoff | [std_msgs/msg/Empty] |
 
+📉 Affichage de l'altitude mesurée : 
+
+
 
     
