@@ -40,8 +40,14 @@ Lancement avec Ubuntu 22.04
 Lancez 3 terminaux  
 Sourcez votre ros2 humble  
 Placez vous dans le dossier contenant le src du repo  
-Build le package en effectuant: colcon build  
-Sourcez les 3 terminaux: source install/setup.bash  
+Build le package en effectuant:
+```bash
+colcon build
+``` 
+Sourcez les 3 terminaux: 
+```bash
+source install/setup.bash 
+```
 S'assûrer de bien être connecté au drone tello  
 Dans le premier terminal: 
 ```bash
