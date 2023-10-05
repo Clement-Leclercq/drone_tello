@@ -43,8 +43,11 @@ Placez vous dans le dossier contenant le src du repo
 Build le package en effectuant: colcon build  
 Sourcez les 3 terminaux: source install/setup.bash  
 S'assûrer de bien être connecté au drone tello  
-Dans le premier terminal:  
--> ros2 run tello tello  
+Dans le premier terminal: 
+```bash
+ros2 run tello tello
+```
+->   
 Dans le second terminal:  
 -> ros2 launch control control.launch.py  
 -> une fenêtre RQT s'ouvre, vous pouvez choisir le topic image_raw  
