@@ -37,7 +37,10 @@ Quel est respectivement le type de chacun des messages associés ?
 
 ### Introduction : 
 
+### Décollage, atterisage et arret d'urgence : 
+
 ### Mode manuel :
+Le mode manuel permet de controler le drone avec la télécommande de Xbox. Le joystick de gauche permet de controler le Throttle et le Yaw quant au joystick droit, il permet de controler le pitch et le roll.
 
 ### Mode scout :
 
