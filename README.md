@@ -18,7 +18,7 @@ peut-on contrôler la trajectoire d’un drone quadricoptère.
 ### Yaw :
 ![Yaw](https://github.com/Clement-Leclercq/drone_tello/blob/main/image/Yaw.png?raw=true)
 
-❓ Question 2 : ❓
+### ❓ Question 2 : ❓
 
 Quels topics correspondent à la commande du drone ?
 Quel est respectivement le type de chacun des messages associés ?
@@ -31,7 +31,7 @@ Quel est respectivement le type de chacun des messages associés ?
 | /land | [std_msgs/msg/Empty] |
 | /takeoff | [std_msgs/msg/Empty] |
 
-📉 Affichage de l'altitude mesurée : 
+### 📉 Affichage de l'altitude mesurée : 
 
 
 
