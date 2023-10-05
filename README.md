@@ -33,8 +33,7 @@ Quel est respectivement le type de chacun des messages associés ?
 
 ### 📉 Affichage de l'altitude mesurée : 
 
-
-![➡](https://github.com/Clement-Leclercq/drone_tello/blob/main/image/Roll.png?raw=true)
+## Control du drone
 
 
 
