@@ -38,6 +38,11 @@ Quel est respectivement le type de chacun des messages associés ?
 ### Introduction : 
 
 ### Décollage, atterisage et arret d'urgence : 
+- Le decollage s'effectue à partir du bouton start de la télécommande
+- L'atterisage s'effectue en utilisant le bouton back de la télécommande
+- L'arret d'urgence utilise le bouton centrale de la télécommande
+
+La node utilisée est **control** ce qui permet à ces actions d'etre independantes des differents modes de fonctionnement.
 
 ### Mode manuel :
 Le mode manuel permet de controler le drone avec la télécommande de Xbox. Le joystick de gauche permet de controler le Throttle et le Yaw quant au joystick droit, il permet de controler le pitch et le roll.
