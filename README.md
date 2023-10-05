@@ -33,7 +33,17 @@ Quel est respectivement le type de chacun des messages associés ?
 
 ### 📉 Affichage de l'altitude mesurée : 
 
-## Control du drone
+## Control du drone : 
+
+### Introduction : 
+
+### Mode manuel :
+
+### Mode scout :
+
+### Mode Spielberg : 
+
+### Mode QR code follower : 
 
 
 
