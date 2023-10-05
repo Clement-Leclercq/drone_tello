@@ -85,6 +85,8 @@ Démonstration vidéo: https://youtu.be/OdZ0dC0NkbQ?si=fF7q7hx6sQZt00Q6
 Le mode scout permet au drone de rester en vol stationnaire tout en tournant sur lui même.  
 Démonstration vidéo: https://youtu.be/g0M1cWxgqsA?si=w5vGnI43z_uuT9KD
 ### Mode Spielberg : 
+Le mode spielberg permet de suivre le visage d'une personne à distance. L'asservisement en vitesse est fait à partir d'un PID, et la détection d'un visage à l'aide d'une cascade de Haar.  
+Le drone cherchera toujours à rester à la meme distance de la personnes en reculant si la personne avance et en avancant si la personne recule. Il peut aussi suivre le visage de gauche à droite et de haut en bas.  
 Démonstration vidéo: https://youtu.be/GxWoVTguUL8?si=xAq99_BImZdGE_Gy
 ### Mode QR code follower : 
 Démonstration vidéo: https://youtu.be/ydxsrOaWPzc?si=SZfchz_pwp_9GMRA
