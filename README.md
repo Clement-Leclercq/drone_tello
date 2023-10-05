@@ -10,9 +10,8 @@ peut-on contrôler la trajectoire d’un drone quadricoptère.
 
 ![Throttle](https://github.com/Clement-Leclercq/drone_tello/blob/main/image/Throttle.png?raw=true)
 ![Roll](https://github.com/Clement-Leclercq/drone_tello/blob/main/image/Roll.png?raw=true)
-![Pitch](http://url/to/img.png)
-![Yaw](http://url/to/img.png)
-
+![Pitch](https://github.com/Clement-Leclercq/drone_tello/blob/main/image/Pitch.png?raw=true)
+![Yaw](https://github.com/Clement-Leclercq/drone_tello/blob/main/image/Yaw.png?raw=true)
 
 
     
