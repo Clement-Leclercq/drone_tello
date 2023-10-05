@@ -47,12 +47,16 @@ Dans le premier terminal:
 ```bash
 ros2 run tello tello
 ```
-->   
-Dans le second terminal:  
--> ros2 launch control control.launch.py  
+
+Dans le second terminal: 
+```bash
+ ros2 launch control control.launch.py 
+```
 -> une fenêtre RQT s'ouvre, vous pouvez choisir le topic image_raw  
 Dans le troisème terminal: Il servira à changer les différents mode du drone via un appel de service  
--> ros2 service call /drone_mode control_interfaces/srv/DroneMode "{mode: 0}"  
+```bash
+ ros2 service call /drone_mode control_interfaces/srv/DroneMode "{mode: 0}"
+```
 -> vous pouvez changer le mode: 0 pour manuel, 1 pour scout, 2 pour Spielberg, 3 pour le follower de QR Code  
 
 ### Décollage, atterisage et arret d'urgence : 
