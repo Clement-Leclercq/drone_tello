@@ -18,7 +18,7 @@ peut-on contrôler la trajectoire d’un drone quadricoptère.
 ### Yaw :
 ![Yaw](https://github.com/Clement-Leclercq/drone_tello/blob/main/image/Yaw.png?raw=true)
 
-### ❓ Question 2 : ❓
+### ❓ Question 2 ❓
 
 Quels topics correspondent à la commande du drone ?
 Quel est respectivement le type de chacun des messages associés ?
@@ -31,7 +31,13 @@ Quel est respectivement le type de chacun des messages associés ?
 | /land | [std_msgs/msg/Empty] |
 | /takeoff | [std_msgs/msg/Empty] |
 
-### 📉 Affichage de l'altitude mesurée : 
+### RQT graph et Rviz : 
+![RQT_graph](https://github.com/Clement-Leclercq/drone_tello/blob/main/image/rqt_screen.png)
+![Rviz](https://github.com/Clement-Leclercq/drone_tello/blob/main/image/rviz_screen.png)
+
+### Ecoute du topic indiquant l'altitude :
+![tof_screen1](https://github.com/Clement-Leclercq/drone_tello/blob/main/image/tof_screen.png)
+![tof_screen2](https://github.com/Clement-Leclercq/drone_tello/blob/main/image/tof_screen2.png)
 
 ## Control du drone : 
 
