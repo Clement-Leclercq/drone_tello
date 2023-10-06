@@ -93,11 +93,13 @@ Démonstration vidéo: https://youtu.be/g0M1cWxgqsA?si=w5vGnI43z_uuT9KD
 ### Mode Spielberg : 
 Le mode spielberg permet de suivre le visage d'une personne à distance. L'asservisement en vitesse est fait à partir d'un PID, et la détection d'un visage à l'aide d'une cascade de Haar.  
 Le drone cherchera toujours à rester à la meme distance de la personnes en reculant si la personne avance et en avançant si la personne recule. Il peut aussi suivre le visage de gauche à droite et de haut en bas.  
+Attention, le path vers le fichier de la cascade de haar est absolu dans le code, la partie à changer est précédée d'un commentaire l'indiquant.  
 Démonstration vidéo: https://youtu.be/GxWoVTguUL8?si=xAq99_BImZdGE_Gy
 ### Mode QR code follower : 
 Le mode QR code follower permet au drone de se centrer tout seul sur un QR Code qu'il détecte via sa caméra. Si le drone ne détecte pas de QR code il ne bougera alors pas.  
 L'asservissement en vitesse est fait à partir d'un PID, et la détection du QR code via la node barcode_reader du package zbar_ros.
-Nous observons tout de même des petites oscillations puisque le PID n'est pas non plus parfait.
+Nous observons tout de même des petites oscillations puisque le PID n'est pas non plus parfait.  
+
 
 Démonstration vidéo: https://youtu.be/ydxsrOaWPzc?si=SZfchz_pwp_9GMRA
 
